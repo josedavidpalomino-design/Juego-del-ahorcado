@@ -32,6 +32,7 @@ def jugar():
         # Verificar si ya adivinó toda la palabra
         if "_" not in estado_actual:
             print("\n¡FELICITACIONES! Has ganado el juego. 🎉")
+            print("\n HAZ LOGRADO ENCONTRAR LA PALABRA SECRETA: " + palabra_secreta)
             break
             
         # Pedir letra al jugador
