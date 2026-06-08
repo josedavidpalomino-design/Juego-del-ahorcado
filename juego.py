@@ -13,6 +13,7 @@ def jugar():
     print("=======================================")
     print(" ¡BIENVENIDO AL JUEGO DEL AHORCADO!    ")
     print(" Metodologías de Desarrollo de Software")
+    print("       Mi primer juego en Python. ")
     print("=======================================\n")
     print(f"Pista: La palabra tiene {len(palabra_secreta)} letras.")
 
