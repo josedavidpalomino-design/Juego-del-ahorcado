@@ -1,3 +1,4 @@
+# Proyecto de Metodologías de Desarrollo de Software - Universidad del Valle
 import random
 
 def obtener_palabra():
