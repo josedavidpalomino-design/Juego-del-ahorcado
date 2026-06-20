@@ -1,7 +1,7 @@
 import random
 
 def obtener_palabra():
-    # Lista de palabras relacionadas con la asignatura
+    # Lista de palabras de la asignatura (Guía: MDS-PL01-Guide (3).pdf)
     palabras = ["SOFTWARE", "JIRA", "CONFLUENCE", "GIT", "GITHUB", "AGIL", "SPRINT"]
     return random.choice(palabras).upper()
 
@@ -17,7 +17,7 @@ def jugar():
     print(f"Pista: La palabra tiene {len(palabra_secreta)} letras.")
 
     while intentos_restantes > 0:
-        # Mostrar el progreso de la palabra
+        # 1. Mostrar el progreso de la palabra
         estado_actual = ""
         for letra in palabra_secreta:
             if letra in letras_adivinadas:
@@ -29,15 +29,15 @@ def jugar():
         print(f"Intentos restantes: {intentos_restantes}")
         print(f"Letras intentadas: {', '.join(letras_adivinadas)}")
         
-        # Verificar si ya adivinó toda la palabra
+        # 2. Verificar si ya ganó
         if "_" not in estado_actual:
             print("\n¡FELICITACIONES! Has ganado el juego. 🎉")
             break
             
-        # Pedir letra al jugador
-        intento = input("Introduce una letra: ").upper()
+        # 3. Pedir letra al jugador
+        intento = input("Introduce una letra: ").upper().strip()
         
-        # Validaciones sencillas
+        # 4. Validaciones
         if len(intento) != 1 or not intento.isalpha():
             print("Por favor, introduce solo una letra válida.")
             continue
@@ -46,14 +46,15 @@ def jugar():
             print("Ya habías intentado esa letra. Prueba otra.")
             continue
             
+        # 5. Agregar la letra a la lista de intentos (¡Esto estaba fallando!)
         letras_adivinadas.append(intento)
         
-        # Verificar si la letra está en la palabra
+        # 6. Verificar si acertó o no
         if intento in palabra_secreta:
             print(f"¡Bien hecho! La letra '{intento}' sí está.")
         else:
             print(f"Lo siento, la letra '{intento}' no está en la palabra.")
-            intentos_restantes -= 1
+            intentos_restantes -= 1 # Resta el intento si falla
             
     if intentos_restantes == 0:
         print("\n=======================================")
